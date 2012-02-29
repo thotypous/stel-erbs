@@ -54,7 +54,7 @@ def main(nome, opids):
     print(repr(gridmax))
     
     lcmap = construct_cmap(gridmax)
-    plt.imsave('%s.png'%nome, grid, cmap=lcmap, origin='lower')
+    plt.imsave('operadoras/%s.png'%nome, grid, cmap=lcmap, origin='lower')
     #plt.imshow(grid, cmap=lcmap, origin='lower')
     #plt.show()
     
