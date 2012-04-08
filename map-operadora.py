@@ -42,7 +42,7 @@ def main():
         if len(opids) == 0:
             continue
         
-        print repr((nome, regex_empresa, opids))
+        print(repr((nome, regex_empresa, opids)))
         
         c = conn.cursor()
         c.execute('select min(longitude),max(longitude),min(latitude),max(latitude) from erbs;')
@@ -55,7 +55,7 @@ def main():
         xdist = np.pi*(longmax-longmin)*earthrad/180.
         ydist = np.pi*(latmax -latmin )*earthrad/180.
         
-        w,h = [1+int(np.floor(dist/gridsize)) for dist in xdist,ydist]
+        w,h = [1+int(np.floor(dist/gridsize)) for dist in (xdist,ydist)]
         print(repr((w,h)))
         
         xfac = float(xdist/gridsize)/(xmax-xmin)

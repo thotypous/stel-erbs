@@ -32,7 +32,7 @@ def main():
     xdist = np.pi*(longmax-longmin)*earthrad/180.
     ydist = np.pi*(latmax -latmin )*earthrad/180.
     
-    w,h = [1+int(np.floor(dist/gridsize)) for dist in xdist,ydist]
+    w,h = [1+int(np.floor(dist/gridsize)) for dist in (xdist,ydist)]
     print(repr((w,h)))
     
     xfac = float(xdist/gridsize)/(xmax-xmin)
