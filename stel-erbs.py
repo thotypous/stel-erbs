@@ -123,7 +123,6 @@ def processar_entidade(conn, opener, entidade, estado_id, uf):
                         municipio_id, = municipio_id
                     else:
                         c.execute('insert into municipios (nome, estado) values (?, ?)', (municipio, estado_id))
-                        wait_commit(conn)
                         municipio_id = c.lastrowid
                         print(repr(('processar_entidade', 'municipio adicionado', municipio_id, municipio, uf)))
                 c = conn.cursor()
@@ -142,7 +141,7 @@ def processar_entidade(conn, opener, entidade, estado_id, uf):
                              convd (entrydata[10]),   # data_ultima_licenca
                             )
                 c.execute('insert into erbs values (?,?,?,?,?,?,?,?,?,?,?)', entrydata)
-                wait_commit(conn)
+            wait_commit(conn)
         except:
             traceback.print_exc()
             print('retrying')
